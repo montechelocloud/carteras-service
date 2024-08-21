@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soul-nomina-app
+  namespace: nomina-ns-dev
+spec:
+  # replicas: 6
+  selector:
+    matchLabels:
+      app: soul-nomina-app
+  template:
+    metadata:
+      labels:
+        app: soul-nomina-app
+    spec:
+      containers:
+        - name: soul-nomina-app
+          image: 533267190927.dkr.ecr.us-east-1.amazonaws.com/back-end:nomina_01
+          ports:
+            - name: http
+              containerPort: 8000
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 200m
+            limits:
+              memory: 500Mi
+              cpu: 500m
+
+              

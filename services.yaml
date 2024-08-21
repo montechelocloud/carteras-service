@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: soul-nomina-app
+  namespace: nomina-ns-dev
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8000
+      targetPort: http
+  selector:
+    app: soul-nomina-app
